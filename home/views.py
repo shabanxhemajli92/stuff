@@ -43,7 +43,7 @@ html = template.render(context) - renders the template with the given context, r
 result = BytesIO() - creates an instance of BytesIO to store the generated PDF
 pdf = pisa.pisaDocument(BytesIO(html.encode("UTF-8")), result) - converts the rendered html to pdf and stores it in result
 response = HttpResponse(result.getvalue(), content_type='application/pdf') - creates an HTTP response object with the contents of the PDF file and sets the content type to application/pdf
-response['Content-Disposition'] = 'attachment; filename="example.pdf"' - sets the 'Content-Disposition' header to 'attachment; filename="example.pdf"' so that the browser prompts the user to download the file instead of displaying it.
+response['Content-Disposition'] = 'attachment; filename="invoice.pdf"' - sets the 'Content-Disposition' header to 'attachment; filename="example.pdf"' so that the browser prompts the user to download the file instead of displaying it.
 if not pdf.err: - check if there's any error occurred during rendering pdf
 return response - returns the HTTP response with the PDF file to the client
 else: -if any error occurred
@@ -56,7 +56,7 @@ return HttpResponse("Error Rendering PDF", status=400) - returns an HTTP respons
     pdf = pisa.pisaDocument(BytesIO(html.encode("UTF-8")), result)
     if not pdf.err:
         response = HttpResponse(result.getvalue(), content_type='application/pdf')
-        response['Content-Disposition'] = 'attachment; filename="example.pdf"'
+        response['Content-Disposition'] = 'attachment; filename="invoice.pdf"'
         return response
     else:
         return HttpResponse("Error Rendering PDF", status=400)

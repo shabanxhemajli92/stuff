@@ -1,25 +1,100 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>PDF Example</title>
+    <title> Invoice </title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 100%;
+        }
+        .left-col {
+            float: left;
+            width: 50%;
+            padding: 0 50px;
+            box-sizing: border-box;
+        }
+        .right-col {
+            float: right;
+            width: 50%;
+            padding: 0 50px;
+            box-sizing: border-box;
+        }
+        h1, h3 {
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: bold;
+        }
+        h1 {
+            margin-top: 40px;
+            font-size: 3em;
+        }
+        h3 {
+            margin: 20px 0;
+            font-size: 1.5em;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .notes {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ccc;
+        }
+    </style>
   </head>
   <body>
-    <h1>PDF Example</h1>
+    <div class="container">
+        <div class="left-col">
+            <h3>Invoice</h3>
+            <p>Contact Info:</p>
+            <p>MRX Software Solutions</p>
+            <p>5068 Neue Kempener Str.</p>
+            <p>Koln,Deutschland 50739</p>
+            <p>+1(782)-5226-5556</p>
+            <p>shaban.xhemajli@mrxsolutions.de</p>
+        </div>
+        <div class="right-col">
+            <h3>Recipient</h3>
+            <p>Alexander Jones</p>
+            <p>456 Park Ave.</p>
+            <p>Los Angeles, USA 54321</p>
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+    <h1>Information</h1>
     <table>
         <thead>
             <tr>
-                <th>Key</th>
-                <th>Value</th>
+                <th>Item</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total</th>
             </tr>
         </thead>
         <tbody>
-            {% for key, value in data.items %}
-                <tr>
-                    <td>{{ key }}</td>
-                    <td>{{ value }}</td>
-                </tr>
-            {% endfor %}
+            <tr>
+                <td>Cubernates Implementation</td>
+                <td>1</td>
+                <td>$20000.00</td>
+                <td>$20000.00</td>
+            </tr>
         </tbody>
     </table>
-  </body>
-</html>
+    <div class="notes">
+        <h3>Notes:</h3>
+        <p>Thank you for your purchase!</p>
+    </div>
